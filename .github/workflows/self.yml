@@ -6,12 +6,12 @@ on:
       - main
 
 jobs:
-  hello-world:
+  hello-hemanth:
     runs-on: self-hosted
 
     steps:
       - name: Checkout Codes
         uses: actions/checkout@v2
 
-      - name: Display Hello World
+      - name: Display Hello heamnth
         run: echo "Hello, Hemanth!"

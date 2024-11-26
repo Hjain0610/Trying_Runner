@@ -10,7 +10,7 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout Code
+      - name: Checkout Codes
         uses: actions/checkout@v3
 
       - name: Display Hello World

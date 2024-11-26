@@ -3,7 +3,7 @@ name: System Info and File Listing on Self-Hosted Runner
 on:
   push:
     branches:
-      - '*'
+      - branch1
   
 
 jobs:

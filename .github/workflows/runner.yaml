@@ -1,30 +1,29 @@
-name: Self-Hosted Runner Test
+name: My First GitHub Actions
 
-on:
-  push:
-    branches:
-      - branch1
-   
+on: [push]
 
 jobs:
-  test-self-hosted:
-    runs-on: [self-hosted]  # This ensures the job runs on your self-hosted runner
+  build:
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9]
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js (if needed)
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v2
       with:
-        node-version: '16'  # Specify the Node.js version you want to use
+        python-version: ${{ matrix.python-version }}
 
-    - name: Print Node.js version
-      run: node --version
-
-    - name: Run a simple script
+    - name: Install dependencies
       run: |
-        echo "Hello, World!"
-        echo "Running on $(hostname)"
-        echo "Current directory: $(pwd)"
+        python -m pip install --upgrade pip
+        pip install pytest
+
+    - name: Run tests
+      run: |
+        cd src
+        python -m pytest addition.py
 

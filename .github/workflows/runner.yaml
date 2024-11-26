@@ -3,7 +3,7 @@ name: Self-Hosted Runner Hello World
 on:
   push:
     branches:
-      - main
+      - branch1
 
 jobs:
   hello-hem:

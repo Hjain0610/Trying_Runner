@@ -11,7 +11,7 @@ jobs:
     runs-on: [self-hosted]  
 
     steps:
-    - name: Checkout repositorys
+    - name: Checkout repository
       uses: actions/checkout@v2
       with:
         ref: 'branch1'

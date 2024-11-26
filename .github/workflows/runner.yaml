@@ -19,9 +19,8 @@ jobs:
     - name: Print Current Directory (pwd) and List Files (ls
       run: |
         echo "Current directory: pwd"
-        
         echo " ls "  
         
 
 
-        name: Self-Hosted Runner Hello World
+        

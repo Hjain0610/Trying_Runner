@@ -1,14 +1,30 @@
-name: Self-Hosted Runner Hello World
+name: Self-Hosted Runner Test
 
 on:
   push:
     branches:
       - branch1
+   
 
 jobs:
-  hello-hem:
-    runs-on: self-hosted
+  test-self-hosted:
+    runs-on: [self-hosted]  # This ensures the job runs on your self-hosted runner
 
     steps:
-        - name: Display Hello World
-          run: echo "Hello, World!" 
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js (if needed)
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Specify the Node.js version you want to use
+
+    - name: Print Node.js version
+      run: node --version
+
+    - name: Run a simple script
+      run: |
+        echo "Hello, World!"
+        echo "Running on $(hostname)"
+        echo "Current directory: $(pwd)"
+

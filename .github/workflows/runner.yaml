@@ -1,18 +1,27 @@
-name: Self-Hosted Runner Hello World
+name: List Files and Print Working Directory on Self-Hosted Runner
 
 on:
   push:
     branches:
-      - branch1
+      - branch-1 
+ 
 
 jobs:
-  hello-hem:
-    runs-on: self-hosted
+  test-job:
+    runs-on: [self-hosted]  
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        ref: 'branch1'
 
-      - name: Display Hello World
-        run: echo "Hello, World!"
+    - name: Print Current Directory (pwd) and List Files (ls
+      run: |
+        echo "Current directory:"
+        pwd 
+        echo "Listing files in the current directory:"
+        ls -l 
 
+
+        name: Self-Hosted Runner Hello World

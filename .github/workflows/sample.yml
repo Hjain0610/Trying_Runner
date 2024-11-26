@@ -12,7 +12,7 @@ on:
         uses: actions/checkout@v2 
 
       - name: Make script deploy executable
-        run: chmod +x /Users/hemanth.k/Documents/try.sh  
+        run: chmod +x /Users/hemanth.k/Documents/trying-osv.sh  
 
       - name: execute shell script
-        run: /Users/hemanth.k/Documents/try.sh  
+        run: /Users/hemanth.k/Documents/trying-osv.sh  

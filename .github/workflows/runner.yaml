@@ -13,6 +13,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+      with:
+        ref: 'branch1'
 
     - name: Print Current Directory (pwd) and List Files (ls)
       run: |

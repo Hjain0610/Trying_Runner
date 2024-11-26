@@ -1,17 +1,23 @@
-name: System Info and File Listing on Self-Hosted Runner
+name: List Files and Print Working Directory on Self-Hosted Runner
 
 on:
   push:
     branches:
-      - branch1
-  
+      - branch-1 
+ 
 
 jobs:
   test-job:
     runs-on: [self-hosted]  
 
-    - name: Print System Information
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Print Current Directory (pwd) and List Files (ls)
       run: |
-        echo "Current Directory: $(pwd)"
-        echo "List of Files in the Directory:"
-        ls -l
+        echo "Current directory:"
+        pwd 
+        echo "Listing files in the current directory:"
+        ls -l 
+

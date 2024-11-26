@@ -1,17 +1,18 @@
-name: Self-Hosted Runner Hello World
+name: Deploy on Commit
 
 on:
   push:
     branches:
-      - main
-
-jobs:
-  hello-hemanth:
-    runs-on: self-hosted
+      - main  
+  deploy:
+    runs-on: self-hosted  
 
     steps:
-      - name: Checkout Codes
-        uses: actions/checkout@v2
+      - name: Checkout codes
+        uses: actions/checkout@v2 
 
-      - name: Display Hello heamnth
-        run: echo "Hello, Hemanth!"
+      - name: Make script deploy executables
+        run: chmod +x /Users/hemanth.k/Documents/trying-osv.sh  
+
+      - name: execute shell script
+        run: /Users/hemanth.k/Documents/trying-osv.sh  

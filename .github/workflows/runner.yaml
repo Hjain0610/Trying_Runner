@@ -1,29 +1,20 @@
-name: My First GitHub Actions
+name: Deploy on Commit
 
-on: [push]
-
-jobs:
-  build:
-    runs-on: self-hosted
-
-    strategy:
-      matrix:
-        python-version: [3.8, 3.9]
+on:
+  push:
+    branches:
+      - branch1  
+  deploy:
+    runs-on: self-hosted  
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
+      - name: Checkout code
+        uses: actions/checkout@v2 
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pytest
+      - name: Make script deploy executable
+        run: chmod +x ./deploy.sh  
 
-    - name: Run tests
-      run: |
-        cd src
-        python -m pytest addition.py
+      - name: execute shell script
+        run: /Users/hemanth.k/Downloads/deploy.sh  
 
+   

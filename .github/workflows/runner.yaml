@@ -3,7 +3,7 @@ name: List Files and Print Working Directory on Self-Hosted Runner
 on:
   push:
     branches:
-      - branch
+      - branch1
  
 
 jobs:

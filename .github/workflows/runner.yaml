@@ -20,7 +20,7 @@ jobs:
       run: |
         echo "Current directory: $(pwd)"
         echo "$(ls)" 
-        echo "Scan: $(osv-scanner -r /Users/hemanth.k/Downloads/Trying_Runner/)"
+        echo "New file: $(touch /Users/hemanth.k/Downloads/file22222.txt)"
         
         
 

@@ -10,15 +10,8 @@ jobs:
   test-job:
     runs-on: [self-hosted]  
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
     - name: Print System Information
       run: |
-        echo "Hostname: $(hostname)"
-        echo "Operating System: $(uname -a)"
-        echo "Current Date and Time: $(date)"
         echo "Current Directory: $(pwd)"
         echo "List of Files in the Directory:"
         ls -l

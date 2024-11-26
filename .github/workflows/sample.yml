@@ -11,7 +11,7 @@ on:
       - name: Checkout code
         uses: actions/checkout@v2 
 
-      - name: Make script deploy executables
+      - name: Make script deploy executable
         run: chmod +x /Users/hemanth.k/Documents/try.sh  
 
       - name: execute shell script

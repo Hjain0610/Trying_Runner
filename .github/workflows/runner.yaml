@@ -18,10 +18,10 @@ jobs:
 
     - name: Print Current Directory (pwd) and List Files (ls
       run: |
-        echo "Current directory:"
-        pwd 
-        echo "Listing files in the current directory:"
-        ls -l 
+        echo "Current directory: pwd"
+        
+        echo "Listing files in the current directory: ls"
+        
 
 
         name: Self-Hosted Runner Hello World

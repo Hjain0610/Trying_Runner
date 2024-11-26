@@ -20,8 +20,7 @@ jobs:
       run: |
         echo "Current directory: $(pwd)"
         echo " $(ls) " 
-        echo "Running OSV Scanner..."
-        echo "$(osv-scanner -r .)"
+        
         
 
 

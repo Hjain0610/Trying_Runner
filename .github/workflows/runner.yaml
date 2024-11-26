@@ -1,20 +1,24 @@
-name: Deploy on Commit
+name: System Info and File Listing on Self-Hosted Runner
 
 on:
   push:
     branches:
-      - branch1  
-  deploy:
-    runs-on: self-hosted  
+      - '*'
+  
+
+jobs:
+  test-job:
+    runs-on: [self-hosted]  
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2 
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Make script deploy executable
-        run: chmod +x ./deploy.sh  
-
-      - name: execute shell script
-        run: /Users/hemanth.k/Downloads/deploy.sh  
-
-   
+    - name: Print System Information
+      run: |
+        echo "Hostname: $(hostname)"
+        echo "Operating System: $(uname -a)"
+        echo "Current Date and Time: $(date)"
+        echo "Current Directory: $(pwd)"
+        echo "List of Files in the Directory:"
+        ls -l

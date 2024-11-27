@@ -34,7 +34,8 @@ jobs:
 
       - name: Update Docker Compose with new image tag
         run: |
-          sed -i "s|my-ecr-repo/web-app:.*|my-ecr-repo/web-app:${GIT_COMMIT_ID}|g" docker-compose.yml
+         sed -i '' "s|my-ecr-repo/web-app:.*|my-ecr-repo/web-app:${GIT_COMMIT_ID}|g" docker-compose.yml
+
 
 
 

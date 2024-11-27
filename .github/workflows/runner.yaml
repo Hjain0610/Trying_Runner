@@ -25,3 +25,8 @@ jobs:
           echo "GIT_COMMIT_ID=$GIT_COMMIT_ID" >> $GITHUB_ENV
           echo "The Git commit ID is: $GIT_COMMIT_ID" 
         id: get-commit
+
+      - name: Build Docker image
+        run: |
+          echo "Building Docker image with commit ID: $GIT_COMMIT_ID"
+          docker build -t my-image:$GIT_COMMIT_ID .

@@ -1,27 +1,22 @@
-name: List Files and Print Working Directory on Self-Hosted Runner
+name: Build and Deploy Docker Image
 
 on:
   push:
     branches:
-      - branch1
- 
+      - branch1  
 
 jobs:
-  test-job:
-    runs-on: [self-hosted]  
+  build-and-deploy:
+    runs-on: [self-hosted]
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      with:
-        ref: 'branch1'
+     
+      - name: Checkout the repository
+        uses: actions/checkout@v3
 
-    - name: Clone specified repository
-      run: |
-          git clone ${{ github.event.inputs.repository_url }} cloned-repo
-          echo "Repository cloned successfully!"
-        
-        
-
-
-        
+    
+      - name: Get the latest Git commit ID
+        run: |
+          GIT_COMMIT_ID=$(git rev-parse --short HEAD)
+          echo "GIT_COMMIT_ID=$GIT_COMMIT_ID" >> $GITHUB_ENV
+        id: get-commit

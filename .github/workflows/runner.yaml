@@ -13,7 +13,7 @@ jobs:
      
       - name: Checkout the repository
         uses: actions/checkout@v3
-      - name: Enable Debug Log
+      - name: Enable Debug Logs
         run: |
           echo "ACTIONS_RUNNER_DEBUG=true" >> $GITHUB_ENV
           echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
@@ -30,3 +30,4 @@ jobs:
         run: |
           echo "Building Docker image with commit ID: $GIT_COMMIT_ID"
           docker build -t my-image:$GIT_COMMIT_ID .
+          echo "Docker image built and tagged: my-image:$GIT_COMMIT_ID"

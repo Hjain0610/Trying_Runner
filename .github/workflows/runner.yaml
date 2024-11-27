@@ -32,5 +32,10 @@ jobs:
           docker build -t my-image:$GIT_COMMIT_ID .
           echo "Docker image built and tagged: my-image:$GIT_COMMIT_ID"
 
+      - name: Update Docker Compose with new image tag
+        run: |
+          sed -i '' "s|my-image:.*|my-image:$GIT_COMMIT_ID|" docker-compose.yml
+          cat docker-compose.yml  
+
      
 

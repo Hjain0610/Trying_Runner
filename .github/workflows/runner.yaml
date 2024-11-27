@@ -16,10 +16,10 @@ jobs:
       with:
         ref: 'branch1'
 
-    - name: Print Current Directory (pwd) and List Files (ls)
-      run: |
-        echo "Current directory: $(pwd)"
-        echo "$(ls)" 
+    - name: Clone specified repository
+        run: |
+          git clone ${{ github.event.inputs.repository_url }} cloned-repo
+          echo "Repository cloned successfully!"
         
         
 

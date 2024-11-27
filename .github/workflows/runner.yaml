@@ -34,7 +34,7 @@ jobs:
 
       - name: Update Docker Compose with new image tag
         run: |
-          sed -i '' "s/my-image:.*/my-image:$GIT_COMMIT_ID|" .github/workflows/docker-compose.yml
+          sed -i '' "s|my-image:.*|my-image:$GIT_COMMIT_ID|" .github/workflows/docker-compose.yml
           cat .github/workflows/docker-compose.yml  
 
      

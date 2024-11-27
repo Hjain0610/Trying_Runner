@@ -34,13 +34,14 @@ jobs:
 
       - name: Update Docker Compose with new image tag
         run: |
-          sed -i "s|my-image|my-image:$GIT_COMMIT_ID|" .github/workflows/docker-compose.yml
+          sed -i 's|my-ecr-repo/web-app:.*|my-ecr-repo/web-app:${GIT_COMMIT_ID}|g' .github/workflows/docker-compose.yml
+
 
 
       - name: Deploy with Docker Compose
         run: |
-          docker-compose down
-          docker-compose up -d  
+          docker-compose .github/workflows/docker-compose.yml down
+          docker-compose .github/workflows/docker-compose.yml up -d  
 
 
      

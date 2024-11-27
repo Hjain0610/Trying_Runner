@@ -37,12 +37,14 @@ jobs:
          sed -i '' "s|my-ecr-repo/web-app:.*|my-ecr-repo/web-app:${GIT_COMMIT_ID}|g" docker-compose.yml
          cat docker-compose.yml
 
-
-
       - name: Deploy with Docker Compose
         run: |
           docker-compose -f ./docker-compose.yml down
           docker-compose -f ./docker-compose.yml up -d  
+
+      - name: Displaying docker-compose
+        run: |
+          cat docker-compose.yml
    
 
      

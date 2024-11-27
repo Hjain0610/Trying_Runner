@@ -23,4 +23,5 @@ jobs:
         run: |
           GIT_COMMIT_ID=$(git rev-parse --short HEAD)
           echo "GIT_COMMIT_ID=$GIT_COMMIT_ID" >> $GITHUB_ENV
+          echo "The Git commit ID is: $GIT_COMMIT_ID" 
         id: get-commit

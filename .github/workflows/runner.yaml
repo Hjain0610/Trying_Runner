@@ -36,5 +36,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: docker-image
-          path: /Users/hemanth.k/Downloads/docker_images-$GIT_COMMIT_ID.tar
+          path: /Users/hemanth.k/Downloads/docker_images/d_images-$GIT_COMMIT_ID.tar
 

@@ -31,3 +31,10 @@ jobs:
           echo "Building Docker image with commit ID: $GIT_COMMIT_ID"
           docker build -t my-image:$GIT_COMMIT_ID .
           echo "Docker image built and tagged: my-image:$GIT_COMMIT_ID"
+
+      - name: Upload Docker image to artifacts 
+        uses: actions/upload-artifact@v3
+        with:
+          name: docker-image
+          path: /Users/hemanth.k/Downloads/docker_images-$GIT_COMMIT_ID.tar
+

@@ -1,0 +1,47 @@
+name: Build and Deploy Docker Image
+
+on:
+  push:
+    branches:
+      - branch1  
+
+jobs:
+  build-and-deploy:
+    runs-on: [self-hosted]
+
+    steps:
+     
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+      - name: Enable Debug Log
+        run: |
+          echo "ACTIONS_RUNNER_DEBUG=true" >> $GITHUB_ENV
+          echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
+
+    
+      - name: Get the latest Git commit ID
+        run: |
+          GIT_COMMIT_ID=$(git rev-parse --short HEAD)
+          echo "GIT_COMMIT_ID=$GIT_COMMIT_ID" >> $GITHUB_ENV
+          echo "The Git commit ID is: $GIT_COMMIT_ID" 
+        id: get-commit
+
+      - name: Build Docker image
+        run: |
+          echo "Building Docker image with commit ID: $GIT_COMMIT_ID"
+          docker build -t my-image:$GIT_COMMIT_ID .
+          echo "Docker image built and tagged: my-image:$GIT_COMMIT_ID"
+
+      - name: Update Docker Compose with new image tag
+        run: |
+         sed -i '' "s|my-ecr-repo/web-app:.*|my-ecr-repo/web-app:${GIT_COMMIT_ID}|g" docker-compose.yml
+         cat docker-compose.yml
+
+      - name: Deploy with Docker Compose
+        run: |
+          docker-compose -f ./docker-compose.yml down
+          docker-compose -f ./docker-compose.yml up -d  
+
+
+     
+

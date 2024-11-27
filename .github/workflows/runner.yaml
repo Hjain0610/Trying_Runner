@@ -17,7 +17,7 @@ jobs:
         ref: 'branch1'
 
     - name: Clone specified repository
-        run: |
+      run: |
           git clone ${{ github.event.inputs.repository_url }} cloned-repo
           echo "Repository cloned successfully!"
         

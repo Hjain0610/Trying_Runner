@@ -41,8 +41,8 @@ jobs:
 
       - name: Deploy with Docker Compose
         run: |
-          docker-compose docker-compose.yml down
-          docker-compose docker-compose.yml up -d  
+          docker-compose.yml down
+          docker-compose.yml up -d  
 
 
      
